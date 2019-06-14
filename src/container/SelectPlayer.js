@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import uuid from "uuid";
+import angular from "../pawns/angular-pawn.png";
+import js from "../pawns/js-pawn.png";
+import react from "../pawns/react-pawn.png";
+import vue from "../pawns/vue-pawn.png";
 
 class SelectPlayer extends Component {
   state = {
-    pawn: ["javascript", "react", "angular", "vue"],
+    pawn: [js, react, angular, vue],
     player: 1
   };
 
@@ -16,10 +21,11 @@ class SelectPlayer extends Component {
   render() {
     return (
       <div>
-        <h1>Playar components</h1>
-        <p>
-          Player {this.state.player} use {this.selectBatch()}{" "}
-        </p>
+        <p>Player {this.state.player} play</p>
+
+        {this.state.pawn.map(res => (
+          <img src={res} className="pawn" alt="" />
+        ))}
       </div>
     );
   }

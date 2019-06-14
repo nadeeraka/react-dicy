@@ -5,7 +5,7 @@ import SelectPlayer from "./container/SelectPlayer";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">kkmn</header>
+      <header className="App-header">@</header>
       <PlayerSelect />
     </div>
   );
