@@ -8,23 +8,33 @@ import vue from "../pawns/vue-pawn.png";
 class SelectPlayer extends Component {
   state = {
     pawn: [js, react, angular, vue],
-    player: 1
+    player: 1,
+    one: ""
+  };
+  setPlayer = pawn => {
+    this.setState({ one: pawn });
   };
 
-  selectBatch() {
+  selectBatch = () => {
     const batch = Math.floor(Math.random() * this.state.pawn.length);
     const nb = this.state.pawn[batch];
 
     return batch;
-  }
+  };
 
   render() {
     return (
       <div>
-        <p>Player {this.state.player} play</p>
+        <h2>Player {this.state.player} Select your pawn </h2>
 
         {this.state.pawn.map(res => (
-          <img src={res} className="pawn" alt="" />
+          <img
+            key={uuid()}
+            onClick={() => this.setPlayer(res)}
+            src={res}
+            className="pawn"
+            alt={res}
+          />
         ))}
       </div>
     );
